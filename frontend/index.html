@@ -8,12 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
                 <i class="fas fa-utensils"></i>
-                <h1>DeliveryApp</h1>
+                <h1>PinkBites</h1>
             </div>
             <nav class="nav">
                 <a href="#" class="nav-link active" data-section="restaurants">Restaurantes</a>
@@ -23,7 +22,6 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main">
         <div class="container">
             <!-- Loading -->
@@ -32,14 +30,12 @@
                 <p>Carregando...</p>
             </div>
 
-            <!-- Error Message -->
             <div class="error" id="error" style="display: none;">
                 <i class="fas fa-exclamation-circle"></i>
                 <p id="error-message">Erro ao carregar dados</p>
                 <button class="btn-retry" onclick="loadCurrentSection()">Tentar Novamente</button>
             </div>
 
-            <!-- Restaurants Section -->
             <section id="restaurants-section" class="section">
                 <div class="section-header">
                     <h2><i class="fas fa-store"></i> Restaurantes</h2>
@@ -49,11 +45,9 @@
                     </div>
                 </div>
                 <div class="grid" id="restaurants-grid">
-                    <!-- Restaurants will be loaded here -->
                 </div>
             </section>
 
-            <!-- Foods Section -->
             <section id="foods-section" class="section" style="display: none;">
                 <div class="section-header">
                     <h2><i class="fas fa-hamburger"></i> Comidas</h2>
@@ -63,11 +57,9 @@
                     </div>
                 </div>
                 <div class="grid" id="foods-grid">
-                    <!-- Foods will be loaded here -->
                 </div>
             </section>
 
-            <!-- Users Section -->
             <section id="users-section" class="section" style="display: none;">
                 <div class="section-header">
                     <h2><i class="fas fa-users"></i> Usuários</h2>
@@ -77,18 +69,15 @@
                     </div>
                 </div>
                 <div class="grid" id="users-grid">
-                    <!-- Users will be loaded here -->
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="close" id="modal-close">&times;</span>
             <div id="modal-body">
-                <!-- Modal content will be loaded here -->
             </div>
         </div>
     </div>
