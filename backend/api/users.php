@@ -33,7 +33,7 @@ try {
             }
             
             if (!isset($user['role'])) {
-                $user['role'] = 'Customer';
+                $user['role'] = 'Cliente';
             }
             
             if (isset($user['created_at'])) {
