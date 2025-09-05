@@ -36,6 +36,12 @@ try {
                 $food['formatted_price'] = 'R$ ' . number_format($food['price'], 2, ',', '.');
             }
             
+            if (isset($food['image']) && !empty($food['image'])) {
+                if (!preg_match('/^https?:\/\//', $food['image'])) {
+                    $food['image'] = 'https://apifakedelivery.vercel.app' . $food['image'];
+                }
+            }
+            
             $food['fetched_at'] = date('Y-m-d H:i:s');
         }
     }

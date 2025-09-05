@@ -136,10 +136,20 @@ class DeliveryApp {
                 break;
         }
 
+        const hasImage = item.image || item.photo || item.avatar || item.picture;
+        const imageUrl = hasImage ? (item.image || item.photo || item.avatar || item.picture) : null;
+
         return `
             <div class="card" data-id="${item.id}">
                 <div class="card-image">
-                    <i class="${icons[section]}"></i>
+                    ${imageUrl ? 
+                        `<img src="${imageUrl}" alt="${this.escapeHtml(title)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                         <div class="fallback-icon" style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">
+                             <i class="${icons[section]}"></i>
+                         </div>` 
+                        : 
+                        `<i class="${icons[section]}"></i>`
+                    }
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">${this.escapeHtml(title)}</h3>

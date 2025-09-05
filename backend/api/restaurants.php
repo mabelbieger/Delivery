@@ -20,6 +20,7 @@ try {
     
     if (is_array($restaurants)) {
         foreach ($restaurants as &$restaurant) {
+            // Add default fields if missing
             if (!isset($restaurant['name']) && isset($restaurant['restaurant_name'])) {
                 $restaurant['name'] = $restaurant['restaurant_name'];
             }
@@ -30,6 +31,12 @@ try {
             
             if (!isset($restaurant['category'])) {
                 $restaurant['category'] = 'Restaurant';
+            }
+            
+            if (isset($restaurant['image']) && !empty($restaurant['image'])) {
+                if (!preg_match('/^https?:\/\//', $restaurant['image'])) {
+                    $restaurant['image'] = 'https://apifakedelivery.vercel.app' . $restaurant['image'];
+                }
             }
             
             $restaurant['fetched_at'] = date('Y-m-d H:i:s');

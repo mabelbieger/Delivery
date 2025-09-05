@@ -40,6 +40,15 @@ try {
                 $user['formatted_date'] = date('d/m/Y H:i', strtotime($user['created_at']));
             }
             
+            $imageFields = ['avatar', 'image', 'photo', 'picture'];
+            foreach ($imageFields as $field) {
+                if (isset($user[$field]) && !empty($user[$field])) {
+                    if (!preg_match('/^https?:\/\//', $user[$field])) {
+                        $user[$field] = 'https://apifakedelivery.vercel.app' . $user[$field];
+                    }
+                }
+            }
+            
             $user['fetched_at'] = date('Y-m-d H:i:s');
         }
     }
